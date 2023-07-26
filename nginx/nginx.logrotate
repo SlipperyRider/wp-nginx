@@ -1,0 +1,14 @@
+/srv/wp-nginx/nginx/logs/*.log
+{
+    missingok
+    notifempty
+    daily
+    rotate 10
+    compress
+    delaycompress
+    sharedscripts
+    postrotate
+        /usr/local/bin/docker-compose -f /srv/wp-nginx/nginx/docker-compose.yml kill -s HUP nginx
+    endscript
+}
+

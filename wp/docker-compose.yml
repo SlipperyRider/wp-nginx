@@ -1,0 +1,35 @@
+version: '2'
+services:
+  app:
+    image: wordpress:6.2.2-php8.0-fpm-alpine
+    volumes:
+      - nginx-html-wp:/var/www/html
+    environment:
+      - TZ=Asia/Tokyo
+    depends_on:
+      - db
+    networks:
+      - default
+      - containya-network
+
+  db:
+    image: mysql:8
+    env_file: .env
+    ports:
+      - "3306:3306"
+    environment:
+      - TZ=Asia/Tokyo
+    volumes:
+      - db-data:/var/lib/mysql
+    networks:
+      - default
+
+volumes:
+  db-data:
+  nginx-html-wp:
+    external: true
+
+networks:
+  default:
+  containya-network:
+    external: true
