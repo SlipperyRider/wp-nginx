@@ -4,6 +4,7 @@ services:
     image: wordpress:6.2.2-php8.0-fpm-alpine
     volumes:
       - nginx-html-wp:/var/www/html
+      - ./app/php/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini:ro
     environment:
       - TZ=Asia/Tokyo
     depends_on:
