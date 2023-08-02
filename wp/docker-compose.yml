@@ -4,7 +4,7 @@ services:
     image: wordpress:6.2.2-php8.0-fpm-alpine
     volumes:
       - nginx-html-wp:/var/www/html
-      - ./app/php/php.ini:/usr/local/etc/php/php.ini:ro
+#      - ./app/php/php.ini:/usr/local/etc/php/php.ini:ro
       - ./app/php/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini:ro
     environment:
       - TZ=Asia/Tokyo
