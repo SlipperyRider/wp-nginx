@@ -24,12 +24,13 @@ services:
     environment:
       - TZ=Asia/Tokyo
     volumes:
-      - db-data:/var/lib/mysql
+      - wp-db-data:/var/lib/mysql
     networks:
       - default
 
 volumes:
-  db-data:
+  wp-db-data:
+    external: true
   nginx-html-wp:
     external: true
 
