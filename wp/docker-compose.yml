@@ -16,7 +16,7 @@ services:
       - containya-network
 
   db:
-    image: mysql:8
+    image: mariadb:latest
     container_name: wp-db-containya
     env_file: .env
     ports:
